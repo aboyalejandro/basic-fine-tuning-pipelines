@@ -1,6 +1,6 @@
 #!/usr/bin/env python3
 """
-GPT-4o mini powered instruction generation for training data
+GPT-4o mini powered instruction generation for any content type
 """
 
 import logging
@@ -12,7 +12,7 @@ logger = logging.getLogger(__name__)
 
 
 class InstructionGenerator:
-    """Generate diverse instructions using GPT-4o mini."""
+    """Generate diverse instructions using GPT-4o mini for any content type."""
 
     def __init__(self):
         self.client = OpenAI(api_key=OPENAI_API_KEY) if OPENAI_API_KEY else None
@@ -40,8 +40,8 @@ Based on this article titled "{article_title}":
 
 Generate 3 diverse instruction prompts that would lead someone to write content similar to this article. Each instruction should:
 - Be specific and actionable
-- Target different aspects (technical explanation, career advice, practical guide)
-- Be suitable for data engineering/technology professionals
+- Target different aspects (explanation, analysis, practical advice)
+- Match the style and domain of the original content
 - Be 10-20 words long
 
 Return only the 3 instructions, one per line, without numbering or bullet points.

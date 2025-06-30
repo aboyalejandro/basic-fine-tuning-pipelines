@@ -1,6 +1,6 @@
 #!/usr/bin/env python3
 """
-Simplified RSS parser for demo
+Generic RSS parser for any Substack
 """
 
 import logging
@@ -13,7 +13,7 @@ logger = logging.getLogger(__name__)
 
 
 class RSSParser:
-    """Simple RSS feed parser for demo."""
+    """Generic RSS feed parser for any Substack."""
 
     def __init__(self):
         self.content_processor = ContentProcessor()
@@ -36,6 +36,7 @@ class RSSParser:
 
         except Exception as e:
             logger.error(f"Error parsing RSS feed: {str(e)}")
+            logger.error("Please verify the RSS URL is valid and accessible")
             return []
 
     def _process_entry(self, entry) -> Dict[str, Any]:

@@ -1,6 +1,6 @@
 #!/usr/bin/env python3
 """
-Simplified main processor for demo
+Generic Substack processor for fine-tuning data generation
 """
 
 import logging
@@ -14,7 +14,7 @@ logger = logging.getLogger(__name__)
 
 
 class SubstackProcessor:
-    """Simple processor for demo."""
+    """Generic processor for any Substack content."""
 
     def __init__(self):
         self.rss_parser = RSSParser()
@@ -23,13 +23,13 @@ class SubstackProcessor:
         self.file_manager = FileManager()
 
     def process_all(self) -> None:
-        """Streamlined processing pipeline."""
-        logger.info("🚀 Starting demo processing...")
+        """Streamlined processing pipeline for any Substack."""
+        logger.info("🚀 Starting Substack processing...")
 
         # Parse articles
         articles = self.rss_parser.parse_feed()
         if not articles:
-            logger.error("❌ No articles found")
+            logger.error("❌ No articles found - check your Substack RSS URL")
             return
 
         # Generate training data
@@ -45,6 +45,7 @@ class SubstackProcessor:
 
         # Upload to OpenAI if available
         if self.openai_client.is_available():
+            logger.info("📤 Uploading training data to OpenAI...")
             file_id, job_id = self.openai_client.upload_and_create_job(TRAINING_FILE)
 
             if job_id:
@@ -54,4 +55,4 @@ class SubstackProcessor:
         else:
             logger.info("ℹ️  No API key - training data saved locally")
 
-        logger.info("✅ Demo completed!")
+        logger.info("✅ Processing completed!")

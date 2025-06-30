@@ -1,12 +1,14 @@
 #!/usr/bin/env python3
 """
-Demo: Substack Fine-Tuning Data Processor
+Generic Substack Fine-Tuning Data Processor
 
-Simplified modular version that:
-1. Parses RSS feed
+A modular tool that processes articles from any Substack to create
+training data for OpenAI fine-tuning:
+
+1. Parses RSS feed from any Substack
 2. Cleans content
-3. Generates training data
-4. Uploads to OpenAI
+3. Generates diverse training examples
+4. Uploads to OpenAI for fine-tuning
 """
 
 import logging
