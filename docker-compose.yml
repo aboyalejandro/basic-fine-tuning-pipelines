@@ -1,0 +1,11 @@
+version: '3.8'
+
+services:
+  substack-finetuner:
+    build: .
+    container_name: substack-finetuner
+    env_file:
+      - .env
+    volumes:
+      - ./output:/app/output 
+    restart: "no" 
