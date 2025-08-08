@@ -48,10 +48,10 @@ Return only the 3 instructions, one per line, without numbering or bullet points
 """
 
             response = self.client.chat.completions.create(
-                model="gpt-4o-mini",
+                model="gpt-5-mini",
                 messages=[{"role": "user", "content": prompt}],
                 max_tokens=200,
-                temperature=0.7,
+                reasoning_effort="low",
             )
 
             instructions = response.choices[0].message.content.strip().split("\n")
