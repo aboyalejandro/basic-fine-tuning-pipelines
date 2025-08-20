@@ -2,6 +2,8 @@
 
 A modular tool that processes articles from **any Substack** to create high-quality training data for OpenAI fine-tuning. Simply provide your Substack RSS URL and OpenAI API key to generate instruction-response pairs optimized for fine-tuning.
 
+### This repo was created for [The Pipe & The Line](https://thepipeandtheline.substack.com/). 
+
 ## 🚀 Quick Start
 
 ### Environment Variables
