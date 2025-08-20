@@ -1,4 +1,4 @@
-# Generic Substack Fine-Tuning Data Processor
+# Fine-Tuning Pipeline For Your Substack Articles
 
 A modular tool that processes articles from **any Substack** to create high-quality training data for OpenAI fine-tuning. Simply provide your Substack RSS URL and OpenAI API key to generate instruction-response pairs optimized for fine-tuning.
 
@@ -14,7 +14,7 @@ SUBSTACK_RSS_URL=https://yoursubstack.substack.com/feed
 ```
 
 **Requirements:**
-- OpenAI API key with GPT-4o mini access
+- OpenAI API key with GPT-5 mini access
 - Valid Substack RSS feed URL
 
 ### Run with Docker
@@ -33,7 +33,7 @@ docker run --env-file .env -v $(pwd)/output:/app/output substack-finetuner
 
 1. **Parses RSS Feed** → Fetches articles from any Substack
 2. **Cleans Content** → Removes HTML, extracts clean text
-3. **Generates Instructions** → Uses GPT-4o mini to create diverse instruction prompts for each article
+3. **Generates Instructions** → Uses GPT-5 mini to create diverse instruction prompts for each article
 4. **Creates Training Data** → Builds instruction-response pairs in OpenAI format
 5. **Saves Data** → Outputs `training_data.jsonl` in proper JSONL format
 6. **Fine-tunes Model** → Automatically uploads to OpenAI and creates fine-tuning job
